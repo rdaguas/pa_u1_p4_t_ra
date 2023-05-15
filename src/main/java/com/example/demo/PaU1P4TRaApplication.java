@@ -15,6 +15,8 @@ public class PaU1P4TRaApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Repaso Tarea 3");
+		/* Se ha realizado los cambios correctamente*/
+		System.out.println("Paso 4 realizado!");
 	}
 
 }
