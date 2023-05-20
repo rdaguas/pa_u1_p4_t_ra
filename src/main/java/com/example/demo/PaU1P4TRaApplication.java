@@ -32,9 +32,7 @@ public class PaU1P4TRaApplication implements CommandLineRunner {
 		
 		System.out.println(profe);
 		profe.setApellido("Aguas");
-		System.out.println(profe.getApellido());
-		
-		
+		System.out.println(profe.getApellido());		
 
 		System.out.println(profe2);
 		profe2.setApellido("Teran");
