@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.repository.modelo.Estudiante;
 
 @Repository
-
 public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	private static List<Estudiante> baseDatos = new ArrayList<>();
@@ -21,20 +20,38 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	@Override
 	public void actualizar(Estudiante estudiante) {
-		// TODO Auto-generated method stub
+	//Estudiante estu = this.seleccionar(estudiante.getCedula());
+	this.eliminar(estudiante.getCedula());
+	this.insertar(estudiante);
+
 		
 	}
 
 	@Override
 	public Estudiante seleccionar(String cedula) {
-		// TODO Auto-generated method stub
-		return null;
+		Estudiante estuEncontrado = new Estudiante();
+		for(Estudiante estu : baseDatos){
+			if(cedula.equals(estu.getCedula())) {
+				estuEncontrado= estu;
+				
+			}
+		}
+	
+		return estuEncontrado;
 	}
 
 	@Override
 	public void eliminar(String cedula) {
-		// TODO Auto-generated method stub
+		Estudiante estu=this.seleccionar(cedula);
+		baseDatos.remove(estu);
+	
 		
+	}
+
+	@Override
+	public List<Estudiante> seleccionarTodos( ) {
+		
+		return baseDatos;
 	}
 
 	

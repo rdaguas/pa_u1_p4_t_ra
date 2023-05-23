@@ -9,8 +9,15 @@ public class Estudiante {
 	private String cedula;
 	private LocalDateTime fechaNacimiento;
 	
+	
+	
 	//SET & GET
 	
+	@Override
+	public String toString() {
+		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fechaNacimiento="
+				+ fechaNacimiento + "]";
+	}
 	public String getNombre() {
 		return nombre;
 	}
