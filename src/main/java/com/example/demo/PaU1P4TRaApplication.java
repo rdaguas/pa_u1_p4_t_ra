@@ -3,14 +3,17 @@ package com.example.demo;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.banco.repository.modelo.Cuenta;
+import com.example.demo.banco.repository.modelo.Transferencia;
 import com.example.demo.banco.service.CuentaService;
 import com.example.demo.banco.service.TransferenciaService;
 import com.example.demo.repository.modelo.Estudiante;
@@ -23,6 +26,7 @@ public class PaU1P4TRaApplication implements CommandLineRunner {
 	private CuentaService cuentaService;
 	
 	@Autowired
+	
 	private TransferenciaService transferenciaService;
 	
 	
@@ -32,6 +36,9 @@ public class PaU1P4TRaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
+		
 		
 		//Cta1
 		Cuenta cta1 = new Cuenta();
@@ -53,10 +60,17 @@ public class PaU1P4TRaApplication implements CommandLineRunner {
 				
 		this.cuentaService.guardar(cta2);
 		
-		this.transferenciaService.realizar("1234", "222", new BigDecimal(10));
+		this.transferenciaService.realizar(cta1.getNumero(), cta2.getNumero(), new BigDecimal(10));
 		
-		System.out.println("Saldo Origen:" + this.cuentaService.buscarPorNumero("1234").getSaldo());
-		System.out.println("Saldo Destino:" + this.cuentaService.buscarPorNumero("222").getSaldo());
+		System.out.println("Saldo Origen:" + this.cuentaService.buscarPorNumero(cta1.getNumero()).getSaldo());
+		System.out.println("Saldo Destino:" + this.cuentaService.buscarPorNumero(cta2.getNumero()).getSaldo());
+		
+		
+		this.transferenciaService.reporte().stream().forEach(System.out::println);
+		
+	
+	}
+		
 		
 		
 	}
@@ -65,4 +79,4 @@ public class PaU1P4TRaApplication implements CommandLineRunner {
 	
 	
 
-}
+

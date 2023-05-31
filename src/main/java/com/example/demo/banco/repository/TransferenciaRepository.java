@@ -1,5 +1,7 @@
 package com.example.demo.banco.repository;
 
+import java.util.List;
+
 import com.example.demo.banco.repository.modelo.Transferencia;
 
 public interface TransferenciaRepository {
@@ -8,4 +10,5 @@ public interface TransferenciaRepository {
 	public void actualizar(Transferencia transferencia);
 	public void eliminar(String numero);
 	public Transferencia seleccionar(String numero);
+	public List<Transferencia> reporte();
 }

@@ -49,4 +49,11 @@ public class TransferenciaRepositoryImpl implements TransferenciaRepository{
 
 	}
 
+		@Override
+		public List<Transferencia> reporte() {
+			// TODO Auto-generated method stub
+			return baseDatos;
+		}
+
+
 }
